@@ -7,15 +7,12 @@ const ProductList = ({ category = null }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        let url = 'https://dummyjson.com/products?limit=10';
+        let url = 'https://dummyjson.com/products?limit=20';
         if (category) {
-            url = `https://dummyjson.com/products/category/${category}`;
+            url = `https://dummyjson.com/products/category/${category}?limit=20`;
+            console.log(url)
         }
-    // let url = 'https://fakestoreapi.com/products';
-    // if (category) 
-    // {
-    //   url = `https://fakestoreapi.com/products/category/${category}`;
-    // }
+
         fetch(url)
         .then((response) => response.json())
         .then((data) => {
