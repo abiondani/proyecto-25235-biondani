@@ -7,7 +7,7 @@ const ProductList = ({ category = null }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        let url = 'https://dummyjson.com/products?limit=20';
+        let url = 'https://dummyjson.com/products?limit=30';
         if (category) {
             url = `https://dummyjson.com/products/category/${category}?limit=20`;
             console.log(url)

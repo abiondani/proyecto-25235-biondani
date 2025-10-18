@@ -1,0 +1,20 @@
+.login-card {
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-btn {
+  background-color: #0033a0;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #00a8e0;
+  transform: scale(1.03);
+}

@@ -34,7 +34,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="navbar-nav" />
 
         <Navbar.Collapse id="navbar-nav">
-          {/* Menú de navegación */}
+
           <Nav className="ms-auto align-items-center text-center">
             <Nav.Link as={Link} to="/" className="text-dark fw-semibold me-2">
               Home
@@ -46,7 +46,6 @@ const Header = () => {
               Imperdibles
             </Nav.Link>
 
-            {/* Botones y carrito */}
             <div className="d-flex align-items-center justify-content-center">
               <Button
                 variant="outline-dark"
@@ -54,7 +53,7 @@ const Header = () => {
                 to="/administracion"
                 className="fw-semibold me-3"
               >
-                Administración
+                Iniciar Sesión
               </Button>
               <Link to="/carrito" className="text-dark position-relative">
                 <FontAwesomeIcon icon={faShoppingCart} size="lg" />
