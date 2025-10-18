@@ -1,0 +1,26 @@
+footer a.text-dark.text-decoration-none:hover {
+  color: #0033a0;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Aplica el giro a los íconos de redes */
+footer a .svg-inline--fa {
+  transition: transform 0.3s ease;
+}
+
+footer a:hover .svg-inline--fa {
+  animation: girar 1s linear infinite;
+  transform-origin: 50% 50%;
+  color: #00a8e0;
+}
+
