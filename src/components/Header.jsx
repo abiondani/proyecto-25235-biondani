@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartContext';
+import logo from "../assets/logo.png";
 
 const Header = () => {
     const { carrito } = useContext(CartContext);
@@ -18,7 +19,7 @@ const Header = () => {
             <Container fluid className="px-4">
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                     <img
-                        src="../../static/img/logo.png"
+                        src={logo}
                         alt="Logo"
                         className="d-inline-block align-top me-2"
                         style={{ height: '40px' }}
