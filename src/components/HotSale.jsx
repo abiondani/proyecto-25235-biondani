@@ -7,7 +7,7 @@ const HotSale = () => {
             <h3 style={{ marginTop: '20px', marginBottom: '20px'}}>
                 Hot Sale
             </h3>
-            <ProductList category="home-decoration"/>
+            <ProductList category="women's clothing"/>
         </div>
   );
 };

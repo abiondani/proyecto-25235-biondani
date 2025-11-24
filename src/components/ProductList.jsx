@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { useEffect, useState, useContext } from 'react';
+import { Row, Col ,Form} from 'react-bootstrap';
 import ProductCard from './ProductCard';
+import { CartContext } from './CartContext';
 
 const ProductList = ({ category = null }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {agregarAlCarrito} = useContext(CartContext);
+    const [barraDeBusqueda, setBarraDeBusqueda] = useState("");    
 
     useEffect(() => {
-        let url = 'https://dummyjson.com/products?limit=30';
+        let url = 'https://692061a331e684d7bfccce13.mockapi.io/productos';
         if (category) {
-            url = `https://dummyjson.com/products/category/${category}?limit=20`;
-            console.log(url)
+            url = `https://fakestoreapi.com/products/category/${category}`;
+            
         }
+        console.log(url)
 
         fetch(url)
         .then((response) => response.json())
@@ -25,22 +29,34 @@ const ProductList = ({ category = null }) => {
         });
     }, [category]);
 
-    const handleAgregarAlCarrito = (product) => {
-        alert(`Producto ${product.title} agregado al carrito`);
-    };
-
     if (loading) {
         return <div>Cargando productos...</div>;
     }
   
+    const filteredProducts = products.filter(product =>
+        product.title.toLowerCase().includes(barraDeBusqueda.toLowerCase()) ||
+        product.description.toLowerCase().includes(barraDeBusqueda.toLowerCase())
+    );
+
     return (
-        <Row>
-            {products.products.map((product) => (
-                <Col md={4} key={product.id} className="mb-4">
-                    <ProductCard product={product} agregarAlCarrito={handleAgregarAlCarrito} />
-                </Col>
-        ))}
-        </Row>
+        <>
+            <Form.Control
+                type="text"
+                placeholder="Buscar productos"
+                className="mb-4"
+                value={barraDeBusqueda}
+                onChange={(e) =>setBarraDeBusqueda(e.target.value)}>
+            </Form.Control>
+  
+            <Row>
+                {filteredProducts.map((product) => (
+                    <Col md={4} key={product.id} className="mb-4">
+                        <ProductCard product={product} agregarAlCarrito={agregarAlCarrito} />
+                        {/* <ProductCard product={product} agregarAlCarrito={null} /> */}
+                    </Col>
+                ))}
+            </Row>
+          </>
     );
 };
 

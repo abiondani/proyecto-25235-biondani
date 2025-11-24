@@ -7,7 +7,7 @@ const Imperdibles = () => {
             <h3 style={{ marginTop: '20px', marginBottom: '20px'}}>
                 Imperdibles
             </h3>
-            <ProductList category="fragrances"/>
+            <ProductList category="electronics"/>
         </div>
   );
 };
